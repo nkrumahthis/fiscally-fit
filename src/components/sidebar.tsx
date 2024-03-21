@@ -1,12 +1,12 @@
 import Link from 'next/link';
 import { useState } from 'react';
 
-const Sidebar: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
+interface SidebarProps {
+  isOpen: boolean;
+  toggleSidebar: () => void;
+}
 
-  const toggleSidebar = () => {
-    setIsOpen(!isOpen);
-  };
+const Sidebar: React.FC<SidebarProps>= ({ isOpen, toggleSidebar}) => {
 
   return (
     <div className={`sidebar ${isOpen ? 'translate-x-0' : '-translate-x-full'} bg-gray-800 text-white w-64 fixed top-0 left-0 h-full overflow-y-auto ease-in-out transition-all duration-300 z-50`}>
